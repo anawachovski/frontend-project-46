@@ -9,8 +9,8 @@ program
   .argument('<filepath1>', 'first configuration file')
   .argument('<filepath2>', 'second configuration file')
   .action((filepath1, filepath2) => {
-	const result = getDiff(filepath1, filepath2);
-	console.log(result);
- });
+    const result = getDiff(filepath1, filepath2);
+    console.log(result);
+  });
 
 program.parse();
