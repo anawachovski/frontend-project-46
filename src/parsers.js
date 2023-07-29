@@ -1,3 +1,13 @@
-const parse = (data, extensionName) => (extensionName === 'json' ? JSON.parse(data) : 'error'); // тут будет swith с другими форматами или другая конструкция
+import yaml from 'js-yaml';
+
+const parse = (data, extensionName) => {
+	switch (extensionName) {
+		case 'yml':
+		case 'yaml':
+			return yaml.load(data);
+		default:
+			return JSON.parse(data);
+	}
+}
 
 export default parse;
