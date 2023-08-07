@@ -5,13 +5,13 @@ import parse from './parsers.js';
 import getFormat from './formatters/index.js';
 
 const getData = (filepath) => {
-	const absolutePath = path.resolve(filepath);
-	const extensionName = path.extname(absolutePath).slice(1);
-	const data = fs.readFileSync(absolutePath, 'utf-8');
- 
-	return parse(data, extensionName);
-	// return JSON.parse(data);
-}
+  const absolutePath = path.resolve(filepath);
+  const extensionName = path.extname(absolutePath).slice(1);
+  const data = fs.readFileSync(absolutePath, 'utf-8');
+
+  return parse(data, extensionName);
+  // return JSON.parse(data);
+};
 
 const getDiffTree = (obj1, obj2) => { //
   // const obj1 = getData(filepath1); // JSON.parse(fs.readFileSync(path.resolve(filepath1)));
@@ -40,6 +40,6 @@ const getDiffTree = (obj1, obj2) => { //
   return result;
 };
 
-const getDiff = (filepath1, filepath2, format = 'stylish') => getFormat(  getDiffTree(   getData(filepath1), getData(filepath2)   ), format);
+const getDiff = (filepath1, filepath2, format = 'stylish') => getFormat(getDiffTree(getData(filepath1), getData(filepath2)), format);
 
 export default getDiff;
