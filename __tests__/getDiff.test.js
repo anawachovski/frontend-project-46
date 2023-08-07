@@ -27,5 +27,5 @@ test.each([
   file1, file2, format, expected,
 }) => {
   expect(getDiff(getFixturePath(file1), getFixturePath(file2), format))
-    .toBe(resultExpected(expected));
+    .toEqual(resultExpected(expected));
 });
