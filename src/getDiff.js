@@ -13,13 +13,11 @@ const getData = (filepath) => {
   // return JSON.parse(data);
 };
 
-const getDiffTree = (obj1, obj2) => { //
-  // const obj1 = getData(filepath1); // JSON.parse(fs.readFileSync(path.resolve(filepath1)));
-  // const obj2 = getData(filepath2); // JSON.parse(fs.readFileSync(path.resolve(filepath2)));
+const getDiffTree = (obj1, obj2) => { 
   const keys = _.union(_.keys(obj1), _.keys(obj2));
   const sortedKeys = _.sortBy(keys);
 
-  const result = sortedKeys.map((key) => { // это массив из объектов
+  const result = sortedKeys.map((key) => {
     if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
       return { key, status: 'nested', children: getDiffTree(obj1[key], obj2[key]) };
     }
