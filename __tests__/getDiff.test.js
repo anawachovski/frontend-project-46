@@ -23,6 +23,12 @@ test.each([
   {
     file1: 'file1.yml', file2: 'file2.yml', format: 'plain', expected: 'resultPlain.txt',
   },
+  {
+    file1: 'file1.json', file2: 'file2.json', format: 'json', expected: 'resultJson.txt',
+  },
+  {
+    file1: 'file1.yml', file2: 'file2.yml', format: 'json', expected: 'resultJson.txt',
+  },
 ])('generate difference', ({
   file1, file2, format, expected,
 }) => {
