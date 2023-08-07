@@ -13,7 +13,7 @@ const getData = (filepath) => {
   // return JSON.parse(data);
 };
 
-const getDiffTree = (obj1, obj2) => { 
+const getDiffTree = (obj1, obj2) => {
   const keys = _.union(_.keys(obj1), _.keys(obj2));
   const sortedKeys = _.sortBy(keys);
 
