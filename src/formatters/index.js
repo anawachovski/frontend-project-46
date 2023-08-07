@@ -1,12 +1,12 @@
-import stylish from './stylish.js';
+import getStylishFormat from './stylish.js';
 import getPlainFormat from './plain.js';
 
-const ast = (filesDif, format) => {
+const getFormat = (filesDif, format) => {
   switch (format) {
-    case 'stylish': return stylish(filesDif);
+    case 'stylish': return getStylishFormat(filesDif);
     case 'plain': return getPlainFormat(filesDif);
     default: throw new Error(`Unknown type: ${format}!`);
   }
 };
 
-export default ast;
+export default getFormat;

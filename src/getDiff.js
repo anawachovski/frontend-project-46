@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import parse from './parsers.js';
-import ast from './formatters/index.js';
+import getFormat from './formatters/index.js';
 
 const getData = (filepath) => {
   const absolutePath = path.resolve(filepath);
@@ -40,6 +40,6 @@ const getDiffTree = (obj1, obj2) => { //
   return result;
 };
 
-const getDiff = (filepath1, filepath2, format = 'stylish') => ast(getDiffTree(getData(filepath1), getData(filepath2)), format);
+const getDiff = (filepath1, filepath2, format = 'stylish') => getFormat(getDiffTree(getData(filepath1), getData(filepath2)), format);
 
 export default getDiff;

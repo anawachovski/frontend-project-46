@@ -7,7 +7,7 @@ const stringify = (data, depth) => {
   return `{${str}\n${space(depth)}}`;
 };
 
-const stylish = (inputData) => {
+const getStylishFormat = (inputData) => {
   const inner = (data, depth) => {
     const arr = data.map((item) => {
       const nextDepth = depth + 1;
@@ -25,4 +25,4 @@ const stylish = (inputData) => {
   return `{\n${inner(inputData, 0)}\n}`;
 };
 
-export default stylish;
+export default getStylishFormat;
