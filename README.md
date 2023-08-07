@@ -8,3 +8,5 @@
 [![asciicast](https://asciinema.org/a/iJ6p2vm1YbZ4h9stHNtJXIFxa.svg)](https://asciinema.org/a/iJ6p2vm1YbZ4h9stHNtJXIFxa)
 ## Сравнение файлов с вложенной структурой JSON/YML/YAML
 [![asciicast](https://asciinema.org/a/NyXlYQ5i0e9lcoDCpWPY3WIAy.svg)](https://asciinema.org/a/NyXlYQ5i0e9lcoDCpWPY3WIAy)
+## Сравнение файлов с вложенной структурой JSON/YML/YAML в формате 'plain'
+[![asciicast](https://asciinema.org/a/rZVH0jyT8ROdQLIsbZE1ioNIl.svg)](https://asciinema.org/a/rZVH0jyT8ROdQLIsbZE1ioNIl)
