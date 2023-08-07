@@ -8,8 +8,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
+//const resultExpected = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
+
 test('generate difference', () => {
-  expect(getDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
-  expect(getDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
-  expect(getDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
-});
+	expect(getDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
+	expect(getDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
+	expect(getDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
+	expect(getDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(fs.readFileSync('./__fixtures__/resultPlain.txt', 'utf-8'));
+ });
+ 
+ 
