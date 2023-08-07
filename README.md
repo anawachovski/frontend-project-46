@@ -6,3 +6,5 @@
 [![asciicast](https://asciinema.org/a/VUYPOIDYnVCkQKts0Rzt9DWsP.svg)](https://asciinema.org/a/VUYPOIDYnVCkQKts0Rzt9DWsP)
 ## Сравнение плоских файлов формата YML/YAML
 [![asciicast](https://asciinema.org/a/iJ6p2vm1YbZ4h9stHNtJXIFxa.svg)](https://asciinema.org/a/iJ6p2vm1YbZ4h9stHNtJXIFxa)
+## Сравнение файлов с вложенной структурой JSON/YML/YAML
+[![asciicast](https://asciinema.org/a/NyXlYQ5i0e9lcoDCpWPY3WIAy.svg)](https://asciinema.org/a/NyXlYQ5i0e9lcoDCpWPY3WIAy)
