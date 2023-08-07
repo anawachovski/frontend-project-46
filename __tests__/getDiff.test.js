@@ -11,4 +11,5 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 test('generate difference', () => {
   expect(getDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
   expect(getDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
+  expect(getDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'))).toEqual(fs.readFileSync('./__fixtures__/resultStylish.txt', 'utf-8'));
 });

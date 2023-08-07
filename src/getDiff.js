@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import parse from './parsers.js';
+import ast from './formatters/index.js';
 
 const getData = (filepath) => {
   const absolutePath = path.resolve(filepath);
@@ -11,13 +12,17 @@ const getData = (filepath) => {
   return parse(data, extensionName);
   // return JSON.parse(data);
 };
-const getDiff = (filepath1, filepath2) => {
-  const obj1 = getData(filepath1); // JSON.parse(fs.readFileSync(path.resolve(filepath1)));
-  const obj2 = getData(filepath2); // JSON.parse(fs.readFileSync(path.resolve(filepath2)));
+
+const getDiffTree = (obj1, obj2) => { //
+  // const obj1 = getData(filepath1); // JSON.parse(fs.readFileSync(path.resolve(filepath1)));
+  // const obj2 = getData(filepath2); // JSON.parse(fs.readFileSync(path.resolve(filepath2)));
   const keys = _.union(_.keys(obj1), _.keys(obj2));
   const sortedKeys = _.sortBy(keys);
 
-  const getDiffTree = sortedKeys.map((key) => {
+  const result = sortedKeys.map((key) => { // это массив из объектов
+    if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
+      return { key, status: 'nested', children: getDiffTree(obj1[key], obj2[key]) };
+    }
     if (!Object.hasOwn(obj1, key)) {
       return { key, status: 'added', value: obj2[key] };
     }
@@ -32,20 +37,9 @@ const getDiff = (filepath1, filepath2) => {
     return { key, status: 'unchanged', value: obj1[key] };
   });
 
-  const space = '  ';
-  const result = `{\n${getDiffTree.map((node) => {
-    if (node.status === 'added') {
-      return `${space}+ ${node.key}: ${node.value}`;
-    }
-    if (node.status === 'deleted') {
-      return `${space}- ${node.key}: ${node.value}`;
-    }
-    if (node.status === 'changed') {
-      return `${space}- ${node.key}: ${node.value1}\n${space}+ ${node.key}: ${node.value2}`;
-    }
-    return `${space}  ${node.key}: ${node.value}`;
-  }).join('\n')}\n}`;
   return result;
 };
+
+const getDiff = (filepath1, filepath2, format = 'stylish') => ast(getDiffTree(getData(filepath1), getData(filepath2)), format);
 
 export default getDiff;
