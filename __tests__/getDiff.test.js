@@ -12,6 +12,12 @@ const resultExpected = (filename) => fs.readFileSync(getFixturePath(filename), '
 
 test.each([
   {
+    file1: 'file1.json', file2: 'file2.json', format: undefined, expected: 'resultStylish.txt',
+  },
+  {
+    file1: 'file1.yml', file2: 'file2.yml', format: undefined, expected: 'resultStylish.txt',
+  },
+  {
     file1: 'file1.json', file2: 'file2.json', format: 'stylish', expected: 'resultStylish.txt',
   },
   {
