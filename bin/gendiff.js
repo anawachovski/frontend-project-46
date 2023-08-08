@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import getDiff from '../src/getDiff.js';
+import genDiff from '../src/index.js';
 
 program
   .description('Compares two configuration files and shows a difference.')
@@ -9,7 +9,7 @@ program
   .argument('<filepath1>', 'first configuration file')
   .argument('<filepath2>', 'second configuration file')
   .action((filepath1, filepath2, options) => {
-    const result = getDiff(filepath1, filepath2, options.format);
+    const result = genDiff(filepath1, filepath2, options.format);
     console.log(result);
   });
 

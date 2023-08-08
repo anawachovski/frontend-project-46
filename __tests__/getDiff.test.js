@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs';
 import { test, expect } from '@jest/globals';
-import getDiff from '../src/getDiff.js';
+import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,6 +32,6 @@ test.each([
 ])('generate difference', ({
   file1, file2, format, expected,
 }) => {
-  expect(getDiff(getFixturePath(file1), getFixturePath(file2), format))
+  expect(genDiff(getFixturePath(file1), getFixturePath(file2), format))
     .toEqual(resultExpected(expected));
 });
